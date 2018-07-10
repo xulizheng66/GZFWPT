@@ -1,0 +1,58 @@
+测试地址
+请求方式
+POST
+
+正文
+请求：
+
+如果进行过登录，则session中会储存用户登录信息，如果未登录则会跳转到登录页面。
+
+返回：
+
+{
+    "msg": null, // String 信息
+    "code": 200, // int 状态code
+    "data": null // Object 数据
+}
+code码及备注
+code	备注
+200	正常
+500	出现错误，错误方为接口调用人
+501	出现错误，错误方为程序内部
+502	验证未通过或存在不允许的操作
+401	未登录
+接口
+登录
+请求地址：
+
+/login/login
+
+请求方式：
+
+post
+
+请求：
+
+参数	类型	能否为空	备注
+userAccount	String(64)	否	用户登录账号
+userPassword	String(32)	否	用户登录密码（用户输入后经过md5加密）
+返回JSON：
+
+{
+    "msg": "登录成功！",
+    "code": 200,
+    "data": {
+        "userKey": "48fed7f3692d11e8bda5408d5c07f6f8",//用户主键
+        "userAccount": null,//用户登录账号
+        "userName": "张三",//用户姓名
+        "orgKey": null,//所属机构key
+        "phone": "18298802635",//用户联系电话
+        "isPartyMember": null,//是否党员
+        "signInIp": null,//登录IP
+        "signInNum": null,//登录次数
+        "signInLastTime": null,//最后一次登录时间
+        "createTime": null,//创建时间
+        "modifyTime": null,//修改时间
+        "deleteState": "001"//删除状态
+    }
+}
